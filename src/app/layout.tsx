@@ -18,19 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} max-h-screen flex flex-col`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex justify-between mt-8 mr-4 ml-4">
-            <h1 className="text-center text-black dark:text-gray-100 font-extrabold text-3xl">
-              CodeGPT
-            </h1>
-            <ModeToggle />
-          </div>
           {children}
         </ThemeProvider>
       </body>

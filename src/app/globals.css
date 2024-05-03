@@ -106,3 +106,13 @@
       @apply bg-background text-foreground;
     }
   }
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+
+  textarea::-webkit-scrollbar {
+    display: none;
+  }
