@@ -3,8 +3,16 @@
 import ChatInput from "@/components/chat-input";
 
 export default function ChatContent() {
-  const handleSubmit = (value: string, file?: File) => {
-    console.log("submit", value, file);
+  const handleSubmit = async (value: string, file?: File) => {
+    const res = await fetch("/api/message", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ content: value }),
+    });
+    const data = await res.json();
+    return data;
   };
   return (
     <div className="flex flex-col h-screen">

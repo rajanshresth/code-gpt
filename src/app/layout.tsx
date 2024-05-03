@@ -18,7 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} max-h-screen flex flex-col`}>
+      <body
+        className={`${inter.className} max-h-screen flex flex-col overflow-hidden`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

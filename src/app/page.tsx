@@ -9,16 +9,16 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { ChevronsLeft } from "lucide-react";
+import { ChevronsRight } from "lucide-react";
 
-export default function Page({ params }: { params: { chatId?: string[] } }) {
+export default function Page() {
   return (
     <main className="max-h-screen flex ">
       <div className="m-4">
         <Sheet>
           <SheetTrigger asChild>
             <Button variant={"outline"}>
-              <ChevronsLeft size={24} />
+              <ChevronsRight size={24} />
             </Button>
           </SheetTrigger>
           <SheetContent side={"left"}>
