@@ -1,9 +1,10 @@
-import Image from "next/image";
+import ChatInput from "@/components/chat-input";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export default function Home() {
   return (
-    <main>
-      <h1 className="text-center text-black">CodeGPT</h1>
+    <main className="m-8 flex items-center justify-center h-full">
+      <ChatInput />
     </main>
   );
 }
