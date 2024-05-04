@@ -116,3 +116,19 @@
   textarea::-webkit-scrollbar {
     display: none;
   }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 0px; /* Width of the scrollbar */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Track color */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #888; /* Handle color */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Handle color on hover */
+  }

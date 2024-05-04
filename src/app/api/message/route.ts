@@ -6,7 +6,7 @@ const genAI = new GoogleGenerativeAI(process.env.GENERATIVE_AI_API_KEY!);
 export async function POST(request: NextRequest) {
   const body = await request.json();
   const { content } = body;
-  const prompt = "Write a program in c";
+  const prompt = `As a professional programming instructor with extensive knowledge in various programming languages, your task is to generate code responses exclusively. If presented with a question not related to coding, respond with a text file containing the message: 'Please ask a coding-related question.'`;
 
   try {
     const modelInstance = genAI.getGenerativeModel({
