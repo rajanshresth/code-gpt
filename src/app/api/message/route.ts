@@ -1,3 +1,4 @@
+import { auth } from "@/auth";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import {
   GoogleGenerativeAIStream,
@@ -8,6 +9,15 @@ import { NextRequest, NextResponse } from "next/server";
 const genAI = new GoogleGenerativeAI(process.env.GENERATIVE_AI_API_KEY!);
 
 export async function POST(request: NextRequest) {
+  const session = await auth();
+  if (!session) {
+    return NextResponse.json(
+      { error: "Not logged in" },
+      {
+        status: 401,
+      }
+    );
+  }
   const body = await request.json();
   const { content } = body;
   const prompt =

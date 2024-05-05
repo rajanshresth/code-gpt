@@ -15,10 +15,11 @@ import { Button } from "./ui/button";
 import { storeMessage } from "@/app/action";
 
 type ChatContentProps = {
+  content?: string;
   session: any;
 };
 
-export default function ChatContent({ session }: ChatContentProps) {
+export default function ChatContent({ session, content }: ChatContentProps) {
   const [assisnantResponse, setAssistantResponse] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const abortControllerRef = useRef<AbortController | null>(null);
@@ -49,7 +50,6 @@ export default function ChatContent({ session }: ChatContentProps) {
       body = JSON.stringify({ content: value });
     }
 
-    // console.log("submit", value, file);
     try {
       abortControllerRef.current = new AbortController();
       const res = await fetch("/api/message", {
@@ -107,25 +107,25 @@ export default function ChatContent({ session }: ChatContentProps) {
     setCopyButtonText("Copied...");
     setTimeout(() => setCopyButtonText("Copy"), 1000);
   };
-
-  console.log("assisnantResponse", assisnantResponse);
-if (assisnantResponse.length > 0) {
-  storeMessage(`${session.user.id}`, assisnantResponse);
-}
+  const userId = session.user.id;
+  if (assisnantResponse.length > 0) {
+    storeMessage(`${userId}`, assisnantResponse);
+  }
   return (
     <div className="flex flex-col h-screen">
       <div className="max-w-4xl w-full max-h-[70vh] mx-auto flex-1 px-10 py-5 overflow-x-hidden overflow-y-scroll custom-scrollbar prose dark:prose-invert">
-        {assisnantResponse && !isLoading && (
-          <Button
-            onClick={() => {
-              handleCopyClick();
-            }}
-            className="mb-2 p-2 text-white rounded"
-          >
-            {copyButtonText}
-            {""} <Copy className="inline-block" />
-          </Button>
-        )}
+        {assisnantResponse ||
+          (content && !isLoading && (
+            <Button
+              onClick={() => {
+                handleCopyClick();
+              }}
+              className="mb-2 p-2 text-white rounded"
+            >
+              {copyButtonText}
+              {""} <Copy className="inline-block" />
+            </Button>
+          ))}
         <Markdown
           remarkPlugins={[remarkGfm]}
           components={{
@@ -150,7 +150,7 @@ if (assisnantResponse.length > 0) {
             },
           }}
         >
-          {assisnantResponse}
+          {assisnantResponse || content}
         </Markdown>
       </div>
       <ChatInput

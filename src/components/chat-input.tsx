@@ -19,7 +19,6 @@ export default function ExpandingInput({
   const [selectedImage, setSelectedImage] = useState<File | undefined>(
     undefined
   );
-  // console.log("selectedImage", selectedImage);
 
   const submit = (value: string) => {
     onSubmit?.(value, selectedImage);
