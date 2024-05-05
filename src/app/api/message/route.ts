@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { StreamingTextResponse, streamText } from "ai";
 import { NextRequest, NextResponse } from "next/server";
-export const genAI = new GoogleGenerativeAI(process.env.GENERATIVE_AI_API_KEY!);
+const genAI = new GoogleGenerativeAI(process.env.GENERATIVE_AI_API_KEY!);
 
 export async function POST(request: NextRequest) {
   const body = await request.json();

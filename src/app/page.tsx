@@ -8,6 +8,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 import { ChevronsRight } from "lucide-react";
 
 export default function Page() {
@@ -33,12 +34,7 @@ export default function Page() {
         </h1>
         <ModeToggle />
       </div>
-      {/* <CopilotPopup
-        labels={{
-          title: "Your Assistant",
-          initial: "Hi! 👋 How can I assist you today?",
-        }}
-      /> */}
+
       <ChatContent />
     </main>
   );
