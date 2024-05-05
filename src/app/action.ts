@@ -23,3 +23,12 @@ export async function storeMessage(user_id: string, content: string) {
     throw new Error("Failed to store message");
   }
 }
+
+export async function Chatlist(user_id: string) {
+  const chat = await db
+    .select()
+    .from(usersMessages)
+    .where(eq(usersMessages.userId, user_id));
+
+  return chat;
+}
