@@ -13,13 +13,11 @@ import { ChevronsRight } from "lucide-react";
 
 export default function Page() {
   return (
-    <main className="max-h-screen flex ">
-      <div className="m-4">
+    <main className="max-h-screen">
+      <div className="flex items-center justify-between m-4">
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant={"outline"}>
-              <ChevronsRight size={24} />
-            </Button>
+            <ChevronsRight size={24} />
           </SheetTrigger>
           <SheetContent side={"left"}>
             <SheetHeader>
@@ -30,14 +28,14 @@ export default function Page() {
             </div>
           </SheetContent>
         </Sheet>
+
+        <h1 className="text-xl lg:text-3xl font-extrabold text-center">
+          CodeGPT
+        </h1>
+        <ModeToggle />
       </div>
-      <div className="flex-1">
-        <div className="flex justify-between m-4">
-          <h1 className="text-3xl font-bold text-center">CodeGPT</h1>
-          <ModeToggle />
-        </div>
-        <ChatContent />
-      </div>
+
+      <ChatContent />
     </main>
   );
 }

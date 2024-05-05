@@ -10,11 +10,16 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus as dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import { convertFileToBase64 } from "@/lib/utils";
+import { Copy } from "lucide-react";
+import { Button } from "./ui/button";
+import { useToast } from "./ui/use-toast";
 
 export default function ChatContent() {
   const [assisnantResponse, setAssistantResponse] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const abortControllerRef = useRef<AbortController | null>(null);
+  const [copyButtonText, setCopyButtonText] = useState("Copy");
+  const { toast } = useToast();
 
   const handleSubmit = async (value: string, file?: File) => {
     setIsLoading(true);
@@ -87,25 +92,32 @@ export default function ChatContent() {
     abortControllerRef.current.abort();
     abortControllerRef.current = null;
   };
-  const copyMarkdownToClipboard = async () => {
+  const copyMarkdownToClipboard = () => {
     try {
-      await navigator.clipboard.writeText(assisnantResponse);
-      alert("Content copied to clipboard!"); // Provide feedback to the user
+      navigator.clipboard.writeText(assisnantResponse);
     } catch (error) {
       console.error("Failed to copy content: ", error);
     }
+  };
+  const handleCopyClick = async () => {
+    await copyMarkdownToClipboard();
+    setCopyButtonText("Copied...");
+    setTimeout(() => setCopyButtonText("Copy"), 2000); // Reset button text after 2 seconds
   };
 
   return (
     <div className="flex flex-col h-screen">
       <div className="max-w-4xl w-full max-h-[70vh] mx-auto flex-1 px-10 py-5 overflow-x-hidden overflow-y-scroll custom-scrollbar prose dark:prose-invert">
         {assisnantResponse && !isLoading && (
-          <button
-            onClick={copyMarkdownToClipboard}
-            className="mb-2 p-2 bg-blue-500 text-white rounded"
+          <Button
+            onClick={() => {
+              handleCopyClick();
+            }}
+            className="mb-2 p-2 text-white rounded"
           >
-            Copy Markdown
-          </button>
+            {copyButtonText}
+            {""} <Copy className="inline-block" />
+          </Button>
         )}
         <Markdown
           remarkPlugins={[remarkGfm]}
