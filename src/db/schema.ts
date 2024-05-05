@@ -26,6 +26,7 @@ export const usersMessages = sqliteTable("userMessage", {
   message: text("message").notNull(),
   createdAt: integer("createdAt", { mode: "timestamp_ms" }).notNull(),
 });
+export type UserMessage = typeof usersMessages.$inferInsert;
 
 export const accounts = sqliteTable(
   "account",

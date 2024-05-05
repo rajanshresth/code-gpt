@@ -14,8 +14,10 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
+
 export default async function Page() {
   const session = await auth();
+
   if (!session) {
     return (
       <main className="flex flex-col gap-8 items-center justify-center h-screen">
@@ -63,7 +65,7 @@ export default async function Page() {
           )}
         </div>
       </div>
-      <ChatContent />
+      <ChatContent session={session} />
     </main>
   );
 }

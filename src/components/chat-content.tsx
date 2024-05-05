@@ -12,14 +12,17 @@ import { vscDarkPlus as dark } from "react-syntax-highlighter/dist/esm/styles/pr
 import { convertFileToBase64 } from "@/lib/utils";
 import { Copy } from "lucide-react";
 import { Button } from "./ui/button";
-import { useToast } from "./ui/use-toast";
+import { storeMessage } from "@/app/action";
 
-export default function ChatContent() {
+type ChatContentProps = {
+  session: any;
+};
+
+export default function ChatContent({ session }: ChatContentProps) {
   const [assisnantResponse, setAssistantResponse] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const abortControllerRef = useRef<AbortController | null>(null);
   const [copyButtonText, setCopyButtonText] = useState("Copy");
-  const { toast } = useToast();
 
   const handleSubmit = async (value: string, file?: File) => {
     setIsLoading(true);
@@ -102,9 +105,13 @@ export default function ChatContent() {
   const handleCopyClick = async () => {
     await copyMarkdownToClipboard();
     setCopyButtonText("Copied...");
-    setTimeout(() => setCopyButtonText("Copy"), 2000); // Reset button text after 2 seconds
+    setTimeout(() => setCopyButtonText("Copy"), 1000);
   };
 
+  console.log("assisnantResponse", assisnantResponse);
+if (assisnantResponse.length > 0) {
+  storeMessage(`${session.user.id}`, assisnantResponse);
+}
   return (
     <div className="flex flex-col h-screen">
       <div className="max-w-4xl w-full max-h-[70vh] mx-auto flex-1 px-10 py-5 overflow-x-hidden overflow-y-scroll custom-scrollbar prose dark:prose-invert">
