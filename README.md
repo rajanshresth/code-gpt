@@ -1,8 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CodeGPT
+
+CodeGPT is a revolutionary web application powered by AI, designed to streamline the coding experience. Generate code snippets swiftly and effortlessly with our intuitive interface and versatile language support.
+
+Project URL: [CodeGPT Live](https://code-gpt-rose.vercel.app/)
 
 ## Getting Started
 
-First, run the development server:
+To get started with CodeGPT locally, follow these steps:
+
+1. Clone this repository:
+
+```bash
+git clone https://github.com/rajanshresth/code-gpt.git
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd code-gpt
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+# or
+yarn
+# or
+pnpm install
+```
+
+4. Run the development server:
 
 ```bash
 npm run dev
@@ -16,21 +44,26 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Next.js:** [Next.js](https://nextjs.org/) powers the frontend of CodeGPT, providing a fast and efficient web development experience.
+- **Gemini:** We leverage Gemini for generative AI capabilities, enhancing CodeGPT's code generation capabilities.
+- **TypeScript:** TypeScript brings static typing to JavaScript, improving code quality and developer productivity.
+- **Tailwind CSS:** Tailwind CSS is used for styling, enabling rapid UI development with its utility-first approach.
+- **Shadcn UI and Remix-UI:** We utilize Shadcn UI and Remix-UI for our component library, ensuring consistency and ease of use across the application.
+- **Vercel:** Vercel powers our AI SDK and deployment, providing seamless hosting and scalability for CodeGPT.
+- **Drizzle-ORM:** Drizzle-ORM facilitates database operations, ensuring efficient data management for CodeGPT.
+- **AuthJS:** AuthJS handles authentication, securing user accounts and access to CodeGPT's features.
+- **Turso.tech:** Turso.tech serves as our database solution, enabling reliable storage and retrieval of user data.
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about CodeGPT and its features, check out the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [CodeGPT Live Demo](https://code-gpt-rose.vercel.app/)
+- [CodeGPT GitHub Repository](https://github.com/rajanshresth/code-gpt)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Gemini Documentation](https://gemini.ai/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Your feedback and contributions are welcome! Feel free to explore the codebase and contribute to the development of CodeGPT.
