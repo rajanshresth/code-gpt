@@ -153,8 +153,9 @@ export default function ChatContent({ session, content }: ChatContentProps) {
           {assisnantResponse || content}
         </Markdown>
         {!assisnantResponse && !content && (
-          <div className="text-center text-gray-400">
-            Ask me anything related to Code-gen! 🚀 Enjoy the experience! 🎉
+          <div className="text-center text-gray-400 flex flex-col gap-4">
+            <span>Ask me anything related to Code-gen! 🚀 </span>
+            <span>Enjoy the experience! 🎉</span>
           </div>
         )}
       </div>
