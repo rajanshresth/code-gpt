@@ -152,6 +152,11 @@ export default function ChatContent({ session, content }: ChatContentProps) {
         >
           {assisnantResponse || content}
         </Markdown>
+        {!assisnantResponse && !content && (
+          <div className="text-center text-gray-400">
+            Ask me anything related to Code-gen! 🚀
+          </div>
+        )}
       </div>
       <ChatInput
         onSubmit={handleSubmit}
