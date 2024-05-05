@@ -154,7 +154,7 @@ export default function ChatContent({ session, content }: ChatContentProps) {
         </Markdown>
         {!assisnantResponse && !content && (
           <div className="text-center text-gray-400">
-            Ask me anything related to Code-gen! 🚀
+            Ask me anything related to Code-gen! 🚀 Enjoy the experience! 🎉
           </div>
         )}
       </div>
