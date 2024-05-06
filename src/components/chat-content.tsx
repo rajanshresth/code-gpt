@@ -114,18 +114,14 @@ export default function ChatContent({ session, content }: ChatContentProps) {
   return (
     <div className="flex flex-col h-screen">
       <div className="max-w-4xl w-full max-h-[70vh] mx-auto flex-1 px-10 py-5 overflow-x-hidden overflow-y-scroll custom-scrollbar prose dark:prose-invert">
-        {assisnantResponse ||
-          (content && !isLoading && (
-            <Button
-              onClick={() => {
-                handleCopyClick();
-              }}
-              className="mb-2 p-2 text-white rounded"
-            >
-              {copyButtonText}
-              {""} <Copy className="inline-block" />
+        {(content || assisnantResponse) && (
+          <div className="flex justify-end">
+            <Button onClick={handleCopyClick}>
+              <Copy size={24} />
+              <span className="ml-2">{copyButtonText}</span>
             </Button>
-          ))}
+          </div>
+        )}
         <Markdown
           remarkPlugins={[remarkGfm]}
           components={{
