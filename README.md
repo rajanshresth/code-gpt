@@ -2,7 +2,9 @@
 
 CodeGPT is a revolutionary web application powered by AI, designed to streamline the coding experience. Generate code snippets swiftly and effortlessly with our intuitive interface and versatile language support.
 
-Project URL: [CodeGPT Live](https://code-gpt-rose.vercel.app/)
+`Project URL`: [CodeGPT Live](https://code-gpt-rose.vercel.app/)
+
+<iframe width="560" height="315" src="https://youtu.be/AWi7S624vCU" frameborder="0" allowfullscreen></iframe>
 
 ## Getting Started
 
