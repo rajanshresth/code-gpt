@@ -31,12 +31,17 @@ export async function POST(request: NextRequest) {
     const chatCompletion = await modelInstance.generateContent([
       prompt + content,
     ]);
+    // console.log("chatCompletion", chatCompletion);
     const responseStream = new ReadableStream({
       start(controller) {
         controller.enqueue(chatCompletion.response.text());
         controller.close();
       },
     });
+    // console.log(
+    //   "streamingTextResponse",
+    //   new StreamingTextResponse(responseStream)
+    // );
     return new StreamingTextResponse(responseStream);
   } catch (error) {
     // console.error(error);

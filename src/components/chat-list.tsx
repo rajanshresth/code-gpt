@@ -7,6 +7,8 @@ import { eq } from "drizzle-orm";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "./ui/separator";
 
+export const dynamic = "force-dynamic";
+
 export default async function ChatList() {
   const session = await auth();
   if (!session) {
