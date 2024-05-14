@@ -4,7 +4,7 @@ CodeGPT is a revolutionary web application powered by AI, designed to streamline
 
 `Project URL`: [CodeGPT Live](https://code-gpt-rose.vercel.app/)
 
-[<iframe width="560" height="315" src="https://youtu.be/AWi7S624vCU" frameborder="0" allowfullscreen></iframe>](https://github.com/rajanshresth/code-gpt/assets/76089000/968e70fa-1d36-48d5-a618-5bc5803a1b2c)
+<iframe width="560" height="315" src="https://youtu.be/AWi7S624vCU" frameborder="0" allowfullscreen></iframe>
 
 ## Getting Started
 
